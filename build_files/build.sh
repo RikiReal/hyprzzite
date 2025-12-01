@@ -38,8 +38,8 @@ dnf5 -y install		\
 	nerd-fonts	\
 	waybar		\
 	rofi		\
-	qt5-wayland	\
-	qt6-wayland	\
+	qt5-qtwayland	\
+	qt6-qtwayland	\
 	wl-clipboard	\
 	wlogout		\
 	pipewire	\
@@ -52,7 +52,7 @@ dnf5 -y install		\
 	grim		\
 	slurp		\
 	swappy		\
-	gnome_keyring	\
+	gnome-keyring	\
 	udiskie		\
 	wob
 

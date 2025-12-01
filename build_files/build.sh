@@ -47,7 +47,6 @@ dnf5 -y install		\
 	playerctl	\
 	ddcutil		\
 	network-manager-applet \
-	uswm		\
 	sddm		\
 	grim		\
 	slurp		\

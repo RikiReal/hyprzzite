@@ -17,7 +17,7 @@ dnf5 -y install		\
 	hyprsunset	\
 	xdg-desktop-portal-hyprland	\
 	xdg-desktop-portal-gtk		\
-	hyperpolkitagent		\
+	hyprpolkitagent		\
 	SwayNotificationCenter
 
 dnf5 -y copr disable solopasha/hyprland

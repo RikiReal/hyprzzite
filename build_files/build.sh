@@ -56,18 +56,13 @@ dnf5 -y install		\
 	wob
 
 ### Installing user apps 
-dnf5 copr enable atim/starship
-
 dnf5 -y install 	\
 	timg		\
 	btop		\
 	kitty		\
 	fish		\
-	starship	\
 	nautilus	\
 	fastfetch	\
 	kvantum
 
-dnf5 copr disable atim/starship
-
-### Add binaries of zed/code, superfile, brave browser, yadm? directly to image using their binaries
+### Add binaries of zed/code, starship, superfile, brave browser, yadm? directly to image using their binaries

@@ -2,6 +2,14 @@
 
 set -ouex pipefail
 
+### Remove KDE plasma and waydroid
+dnf5 -y remove		\
+       	plasma-* 	\
+	kde*		\
+       	konsole 	\
+	steamdeck-kde-presets-desktop	\
+	waydroid
+
 ### Install packages
 
 dnf5 -y copr enable solopasha/hyprland

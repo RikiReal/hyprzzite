@@ -66,7 +66,7 @@ dnf5 -y install 	\
 	starship	\
 	nautilus	\
 	fastfetch	\
-	Kvantum
+	kvantum
 
 dnf5 copr disable atim/starship
 

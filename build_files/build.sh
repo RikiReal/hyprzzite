@@ -66,8 +66,6 @@ dnf5 -y install 	\
 	kvantum
 
 dnf5 -y config-manager addrepo --from-repofile=https://brave-browser-rpm-release.s3.brave.com/brave-browser.repo
-### Remove this directory so brave can install, otherwise it cannot unpack the rpm
-rm -rf /opt/brave.com
 dnf5 -y install brave-browser
 
 ### Installing more apps that are not in the repository

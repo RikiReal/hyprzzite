@@ -69,7 +69,17 @@ dnf5 -y config-manager addrepo --from-repofile=https://brave-browser-rpm-release
 dnf5 -y install brave-browser
 
 ### Installing more apps that are not in the repository
-curl -fsSL https://starship.rs/install.sh | sh
-curl -fsSL https://superfile.dev/install.sh | sh
-curl -fsSL https://zed.dev/install.sh | sh
+curl -fsSL https://starship.rs/install.sh | sh -s "--yes"
+curl -fsSL https://zed.dev/install.sh | sh 
 curl -fsSLo /usr/local/bin/yadm https://github.com/yadm-dev/yadm/raw/master/yadm && chmod a+x /usr/local/bin/yadm
+
+# Install superfile like this
+# Because their install script requires interactive sudo, which I cant do in a container install
+SUPERFILE_VERSION="$(curl -fsSL -H "Accept: application/vnd.github+json" https://api.github.com/repos/yorukot/superfile/releases/latest | grep '"tag_name"' | awk -F ":" '{ print $2 }' | tr -d '",[:blank:]')"
+FILENAME="superfile-linux-${SUPERFILE_VERSION}-amd64.tar.gz"
+curl -fsSLO "https://github.com/yorukot/superfile/releases/download/${SUPERFILE_VERSION}/${FILENAME}"
+tar -xzf "${FILENAME}"
+chmod a+x ./dist/${FILENAME}/spf
+mv ./dist/${FILENAME}/spf /usr/local/bin/
+rm -rf ./dist $FILENAME
+unset FILENAME SUPERFILE_VERSION

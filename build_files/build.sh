@@ -65,4 +65,11 @@ dnf5 -y install 	\
 	fastfetch	\
 	kvantum
 
-### Add binaries of zed/code, starship, superfile, brave browser, yadm? directly to image using their binaries
+dnf5 -y config-manager addrepo --from-repofile=https://brave-browser-rpm-release.s3.brave.com/brave-browser.repo
+dnf5 -y install brave-browser
+
+### Installing more apps that are not in the repository
+curl -fsSL https://starship.rs/install.sh | sh
+curl -fsSL https://superfile.dev/install.sh | sh
+curl -fsSL https://zed.dev/install.sh | sh
+curl -fsSLo /usr/local/bin/yadm https://github.com/yadm-dev/yadm/raw/master/yadm && chmod a+x /usr/local/bin/yadm

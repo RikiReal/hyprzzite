@@ -69,7 +69,7 @@ dnf5 -y config-manager addrepo --from-repofile=https://brave-browser-rpm-release
 dnf5 -y install brave-browser
 
 ### Installing more apps that are not in the repository
-curl -fsSL https://starship.rs/install.sh | sh -s "--yes"
+curl -fsSL https://starship.rs/install.sh | sh -s -- "--yes"
 curl -fsSL https://zed.dev/install.sh | sh 
 curl -fsSLo /usr/local/bin/yadm https://github.com/yadm-dev/yadm/raw/master/yadm && chmod a+x /usr/local/bin/yadm
 

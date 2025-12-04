@@ -69,12 +69,13 @@ dnf5 -y config-manager addrepo --from-repofile=https://brave-browser-rpm-release
 dnf5 -y install brave-browser
 
 ### Installing more apps that are not in the repository
-curl -fsSL https://starship.rs/install.sh | sh -s -- "--yes --bin-dir '/usr/bin'"
+curl -fsSL https://starship.rs/install.sh | sh -s -- "--yes" "--bin-dir=/usr/bin"
 curl -fsSLo /usr/bin/yadm https://github.com/yadm-dev/yadm/raw/master/yadm && chmod a+x /usr/bin/yadm
 
 ### Install zed
-curl -fsSLo zed.tar.gz https://cloud.zed.dev/releases/stable/latest/download?asset=zed&arch=x86_64&os=linux&source=docs
+curl -fsSLo zed.tar.gz "https://cloud.zed.dev/releases/stable/latest/download?asset=zed&arch=x86_64&os=linux"
 tar -xzf zed.tar.gz
+rm -f zed.tar.gz
 mv zed.app /opt/
 ln -sf /opt/zed.app/bin/zed /usr/bin/zed
 cp /opt/zed.app/share/applications/zed.desktop /usr/share/applications/dev.zed.Zed.desktop

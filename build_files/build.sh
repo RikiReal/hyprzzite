@@ -85,10 +85,10 @@ sed -i "s|Exec=zed|Exec=/opt/zed.app/libexec/zed-editor|g" /usr/share/applicatio
 # Install superfile 
 # Because their install script requires interactive sudo, which I cant do in a container install
 SUPERFILE_VERSION="$(curl -fsSL -H "Accept: application/vnd.github+json" https://api.github.com/repos/yorukot/superfile/releases/latest | grep '"tag_name"' | awk -F ":" '{ print $2 }' | tr -d '",[:blank:]')"
-FILENAME="superfile-linux-${SUPERFILE_VERSION}-amd64.tar.gz"
-curl -fsSLO "https://github.com/yorukot/superfile/releases/download/${SUPERFILE_VERSION}/${FILENAME}"
-tar -xzf "${FILENAME}"
+FILENAME="superfile-linux-${SUPERFILE_VERSION}-amd64"
+curl -fsSLO "https://github.com/yorukot/superfile/releases/download/${SUPERFILE_VERSION}/${FILENAME}.tar.gz"
+tar -xzf "${FILENAME}.tar.gz"
 chmod a+x ./dist/${FILENAME}/spf
 mv ./dist/${FILENAME}/spf /usr/bin/
-rm -rf ./dist $FILENAME
+rm -rf ./dist "${FILENAME}.tar.gz"
 unset FILENAME SUPERFILE_VERSION

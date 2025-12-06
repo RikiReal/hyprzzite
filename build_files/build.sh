@@ -44,6 +44,7 @@ dnf5 -y install		\
 	wlogout		\
 	pipewire	\
 	wireplumber	\
+	pavucontrol	\
 	playerctl	\
 	ddcutil		\
 	network-manager-applet \
@@ -53,7 +54,8 @@ dnf5 -y install		\
 	swappy		\
 	gnome-keyring	\
 	udiskie		\
-	wob
+	wob		\
+	xwaylandvideobridge
 
 ### Installing user apps 
 dnf5 -y install 	\

@@ -53,6 +53,7 @@ dnf5 -y install		\
 	slurp		\
 	swappy		\
 	gnome-keyring	\
+	gnome-keyring-pam \
 	udiskie		\
 	wob		\
 	xwaylandvideobridge

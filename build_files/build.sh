@@ -66,7 +66,8 @@ dnf5 -y install 	\
 	fish		\
 	nautilus	\
 	fastfetch	\
-	kvantum
+	kvantum		\
+	lxappearance
 
 dnf5 -y config-manager addrepo --from-repofile=https://brave-browser-rpm-release.s3.brave.com/brave-browser.repo
 dnf5 -y install brave-browser

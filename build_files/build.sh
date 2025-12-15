@@ -5,10 +5,10 @@ set -ouex pipefail
 ### Remove KDE plasma and waydroid
 dnf5 -y remove		\
        	plasma-* 	\
-	kde*		\
+        kde*		\
        	konsole 	\
-	steamdeck-kde-presets-desktop	\
-	waydroid
+        steamdeck-kde-presets-desktop	\
+        waydroid
 
 ### Install packages
 
@@ -58,7 +58,7 @@ dnf5 -y install		\
 	wob		\
 	xwaylandvideobridge
 
-### Installing user apps 
+### Installing user apps
 dnf5 -y install 	\
 	timg		\
 	btop		\
@@ -86,7 +86,7 @@ cp /opt/zed.app/share/applications/zed.desktop /usr/share/applications/dev.zed.Z
 sed -i "s|Icon=zed|Icon=/opt/zed.app/share/icons/hicolor/512x512/apps/zed.png|g" /usr/share/applications/dev.zed.Zed.desktop
 sed -i "s|Exec=zed|Exec=/opt/zed.app/libexec/zed-editor|g" /usr/share/applications/dev.zed.Zed.desktop
 
-# Install superfile 
+# Install superfile
 # Because their install script requires interactive sudo, which I cant do in a container install
 SUPERFILE_VERSION="$(curl -fsSL -H "Accept: application/vnd.github+json" https://api.github.com/repos/yorukot/superfile/releases/latest | grep '"tag_name"' | awk -F ":" '{ print $2 }' | tr -d '",[:blank:]')"
 FILENAME="superfile-linux-${SUPERFILE_VERSION}-amd64"
@@ -96,3 +96,12 @@ chmod a+x ./dist/${FILENAME}/spf
 mv ./dist/${FILENAME}/spf /usr/bin/
 rm -rf ./dist "${FILENAME}.tar.gz"
 unset FILENAME SUPERFILE_VERSION
+
+# Install sddm themes
+# https://github.com/Keyitdev/sddm-astronaut-theme
+git clone -b master --depth 1 https://github.com/keyitdev/sddm-astronaut-theme.git /usr/share/sddm/themes/sddm-astronaut-theme
+cp -rf /usr/share/sddm/themes/sddm-astronaut-theme/Fonts/* /usr/share/fonts/
+cp -f /ctx/sddm.conf /etc/sddm.conf
+cp -f /ctx/metadata.desktop /usr/share/sddm/themes/sddm-astronaut-theme/metadata.desktop
+cp -f /ctx/cozy-vending-machines.conf /usr/share/sddm/themes/sddm-astronaut-theme/Themes/
+cp -f /ctx/vending-machines* /usr/share/sddm/themes/sddm-astronaut-theme/Backgrounds/
